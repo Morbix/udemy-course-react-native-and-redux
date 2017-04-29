@@ -4,7 +4,9 @@ import { View, Text } from 'react-native';
 class AlbumList extends Component {
   render() {
     return (
-      <Text>Album List!!!</Text>
+      <Text style={{backgroundColor: 'transparent'}}>
+        Album List!!!
+      </Text>
     );
   }
 };

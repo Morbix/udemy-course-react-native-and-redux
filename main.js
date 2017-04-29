@@ -8,7 +8,7 @@ const App = () => {
 	return (
 		<View>
 			<Header headerText="Albums!"/>
-			<AlbumList />
+			<AlbumList/>
 		</View>
 	);
 };
