@@ -4,9 +4,9 @@ import { Text, AppRegistry } from 'react-native';
 import Header from './src/components/Header';
 
 const App = () => {
-  return (
-    <Header />
-  );
+    return (
+        <Header />
+    );
 };
 
 Expo.registerRootComponent(App);
