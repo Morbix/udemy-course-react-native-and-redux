@@ -19,17 +19,11 @@ class AlbumList extends Component {
 
   render() {
     return (
-      <ScrollView style={ styles.scrollStyle }>
+      <ScrollView>
         {this.renderAlbums()}
       </ScrollView>
     );
   }
 };
-
-const styles = {
-  scrollStyle: {
-    backgroundColor: 'transparent'
-  }
-}
 
 export default AlbumList;
