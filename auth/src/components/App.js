@@ -5,7 +5,7 @@ import { Header } from './common';
 
 export default class App extends Component {
   componentWillMount() {
-    initializeFirebase();
+    this.initializeFirebase();
   }
 
   initializeFirebase() {
