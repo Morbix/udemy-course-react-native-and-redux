@@ -14,6 +14,8 @@ const Input = ({ label, value, onChangeText }) => {
         { label }
       </Text>
       <TextInput
+        placeholder={ 'Type your ' + label.toLowerCase() }
+        autoCorrect={ false }
         style={ inputStyle }
         value={ value }
         onChangeText={ onChangeText } />
