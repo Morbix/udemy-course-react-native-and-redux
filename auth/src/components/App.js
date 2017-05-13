@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import firebase from 'firebase';
-import { Header, Button, Card, CardSection } from './common';
+import {
+  Header,
+  Button,
+  Spinner
+} from './common';
 import LoginForm from './LoginForm';
 
 export default class App extends Component {
-  state = { loggedIn: false };
+  state = { loggedIn: null };
 
   componentWillMount() {
     this.initializeFirebase();
@@ -31,15 +35,14 @@ export default class App extends Component {
   }
 
   renderContent() {
-    if (this.state.loggedIn) {
-      return (
-        <Button>
-          Log Out
-        </Button>
-      );
+    switch (this.state.loggedIn) {
+      case true:
+        return <Button>Log Out</Button>;
+      case false:
+        return <LoginForm />;
+      default:
+        return <Spinner size='large' />;
     }
-
-    return <LoginForm />;
   }
 
   render() {
@@ -49,7 +52,7 @@ export default class App extends Component {
           title='Authentication'
           backgroundColor='#FBBB3D'
           titleColor='#524B3F' />
-        <Button>Log Out</Button>
+        { this.renderContent() }
       </View>
     );
   }

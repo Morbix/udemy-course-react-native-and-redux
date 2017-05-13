@@ -11,7 +11,6 @@ const Spinner = ({ size }) => {
 
 const Styles = {
   spinner: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
   }
