@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 import {
   Button,
   Card,
@@ -40,7 +40,7 @@ export default class LoginForm extends Component {
 
   onLoginFail(error) {
     this.setState({
-      error: 'Authentication Failed.',
+      error: error.message || 'Authentication Failed.',
       loading: false,
       password: ''
     });
@@ -91,7 +91,9 @@ export default class LoginForm extends Component {
         </Text>
 
         <CardSection>
-          { this.renderButton() }
+          <View style={Styles.containerButton}>
+            { this.renderButton() }
+          </View>
         </CardSection>
       </Card>
     );
@@ -103,5 +105,9 @@ const Styles = {
     fontSize: 20,
     alignSelf: 'center',
     color: 'red'
+  },
+  containerButton: {
+    flex: 1,
+    alignSelf: 'stretch'
   }
 };

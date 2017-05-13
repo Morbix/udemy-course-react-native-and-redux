@@ -12,7 +12,8 @@ const Spinner = ({ size }) => {
 const Styles = {
   spinner: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    margin: 8
   }
 }
 

@@ -4,7 +4,8 @@ import firebase from 'firebase';
 import {
   Header,
   Button,
-  Spinner
+  Spinner,
+  CardSection
 } from './common';
 import LoginForm from './LoginForm';
 
@@ -37,7 +38,14 @@ export default class App extends Component {
   renderContent() {
     switch (this.state.loggedIn) {
       case true:
-        return <Button>Log Out</Button>;
+        return (
+          //<CardSection>
+            <Button
+              onPress={() => firebase.auth().signOut()}>
+              Log Out
+            </Button>
+          //</CardSection>
+        );
       case false:
         return <LoginForm />;
       default:
