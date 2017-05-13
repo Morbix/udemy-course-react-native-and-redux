@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import firebase from 'firebase';
-import { Header } from './common';
+import { Header, Button, Card, CardSection } from './common';
 import LoginForm from './LoginForm';
 
 export default class App extends Component {
+  state = { loggedIn: false };
+
   componentWillMount() {
     this.initializeFirebase();
   }
@@ -18,6 +20,26 @@ export default class App extends Component {
       storageBucket: 'authentication-f3909.appspot.com',
       messagingSenderId: '116978728352'
     });
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ loggedIn: true });
+      } else {
+        this.setState({ loggedIn: false });
+      }
+    });
+  }
+
+  renderContent() {
+    if (this.state.loggedIn) {
+      return (
+        <Button>
+          Log Out
+        </Button>
+      );
+    }
+
+    return <LoginForm />;
   }
 
   render() {
@@ -27,7 +49,7 @@ export default class App extends Component {
           title='Authentication'
           backgroundColor='#FBBB3D'
           titleColor='#524B3F' />
-        <LoginForm />
+        <Button>Log Out</Button>
       </View>
     );
   }
